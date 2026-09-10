@@ -36,6 +36,7 @@ B = Point(5,5)
 C = Point(-2,-2)
 D = Point(5,-2)
 
+#Q4:
 A.lire_coord_polaires()
 B.lire_coord_polaires()
 C.lire_coord_polaires()
