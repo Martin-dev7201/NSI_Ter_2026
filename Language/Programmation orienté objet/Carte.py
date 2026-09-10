@@ -7,8 +7,8 @@ class Carte :
         self.__couleur = coul
         self.__definir_figure()        
             
-    def __repr__(self) :
-        return self.__figure + ' de ' + self.__couleur
+    def __repr__(self):
+        return f"{self.figure} de {self.couleur}"
         
     def obtenir_couleur(self) :
         return self.__couleur
