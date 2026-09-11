@@ -6,7 +6,7 @@ class Jeu2Cartes:
         self.jeu = self._construire_jeu()
         self.nbre_cartes = len(self.jeu)
 
-    def _construire_jeu(self) -> list:
+    def _construire_jeu(self):
         """Construit une liste de 52 cartes ordonnées puis mélangées."""
         couleurs = ["carreau", "cœur", "pique", "trèfle"]
         cartes = []
@@ -25,7 +25,7 @@ class Jeu2Cartes:
         self.jeu = self._construire_jeu()
         self.nbre_cartes = len(self.jeu)
 
-    def distribuer_carte(self) -> Carte:
+    def distribuer_carte(self):
         """Renvoie la première carte de la liste jeu et la retire."""
         if self.nbre_cartes > 0:
             self.nbre_cartes -= 1
