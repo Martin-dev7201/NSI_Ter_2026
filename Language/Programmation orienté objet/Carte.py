@@ -39,6 +39,7 @@ carte1 = Carte(11,"trèfles")
 
 #Q7:
 carte1.obtenir_figure()
+'valet'
 
 #Q8:
 jeu_vide = [0]*52
