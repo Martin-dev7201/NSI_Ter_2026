@@ -58,7 +58,38 @@ class Filtre:
                     self._pix[x, y] = (0, 0, 0)
                 else:
                     self._pix[x, y] = (255, 255, 255)
-
+    def symetrie_verticale(self):
+        """Effectue une symétrie verticale (effet miroir gauche/droite)."""
+        w = self.width()
+        h = self.height()
+        for x in range(w // 2):
+            for y in range(h):
+                pixel_gauche = self._pix[x, y]
+                pixel_droite = self._pix[w - 1 - x, y]
+                
+                self._pix[x,y] = pixel_droite
+                self._pix[w - 1 - x,y] = pixel_gauche
+    
+    def assombrire(self,factor):
+        ''' On veut assombrire l'image'''
+        for x in range(self.width()):
+            for y in range(self.height()):
+                r, g, b = self._pix[x, y][:3]
+                r_new = max(0, r - factor)
+                g_new = max(0, g - factor)
+                b_new = max(0, b - factor)
+                self._pix[x, y] = (r_new, g_new, b_new)
+    
+    def éclaircir(self,factor):
+        '''On veut éclaircir l'image'''
+        for x in range(self.width()):
+            for y in range(self.height()):
+                r, g, b = self._pix[x, y][:3]
+                r_new = min(255, r + factor)
+                g_new = min(255, g + factor)
+                b_new = min(255, b + factor)
+                self._pix[x, y] = (r_new, g_new, b_new)
+    
     def show_image(self):
         return self._img.show()
 
@@ -69,24 +100,46 @@ tigre = Filtre(img)
 print("#######################################")
 print("#           Menu d'image              #")
 print("#######################################")
+
 print("1 : Négatif")
 print("2 : Rouge")
 print("3 : Nuances de gris")
 print("4 : Monochrome")
+print("5 : Symetrie_verticale")
+print("6 : Assombrire")
+print("7 : Eclaircir")
+
 print("#######################################")
 
-choix = input(" Choisissez la transformation de votres image:")
+choix = input(" Choisissez la transformation de votre image:")
 
 if choix == "1":
     tigre.reverse()
     tigre.show_image()
+
 elif choix == "2":
     tigre.red()
     tigre.show_image()
+
 elif choix == "3":
     tigre.color2grey()
     tigre.show_image()
+
 elif choix == "4":
     tigre.threshold()
+    tigre.show_image()
+
+elif choix == "5":
+    tigre.symetrie_verticale()
+    tigre.show_image()
+
+elif choix == "6":
+    factor = int(input("De combien voulez-vous assombrir ?"))
+    tigre.assombrire(factor)
+    tigre.show_image()
+
+elif choix == "7":
+    factor = int(input("De combien voulez-vous éclaircir ?"))
+    tigre.éclaircir(factor)
     tigre.show_image()
   
