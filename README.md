@@ -1,8 +1,19 @@
-# NSI Terminale — 2026
+<div align="center">
 
-Dépôt de révisions, TP et projets pour l'épreuve de spécialité **Numérique et Sciences Informatiques (NSI)**, Terminale, session 2026.
+# 📘 NSI Terminale — 2026
 
-## Structure du dépôt
+**Révisions, TP et projets — Épreuve de spécialité Numérique et Sciences Informatiques**
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white)
+![Status](https://img.shields.io/badge/statut-en%20cours-yellow)
+![Licence](https://img.shields.io/badge/licence-p%C3%A9dagogique-lightgrey)
+
+</div>
+
+---
+
+## 🗂️ Structure du dépôt
 
 ```
 .
@@ -16,31 +27,39 @@ Dépôt de révisions, TP et projets pour l'épreuve de spécialité **Numériqu
 └── README.md
 ```
 
-*(Arborescence à ajuster selon le contenu réel du dépôt.)*
+> ⚠️ Arborescence indicative, à ajuster selon le contenu réel du dépôt.
 
-## Contenu couvert (programme officiel)
+---
 
-- Types construits et représentation des données
-- Structures de données (tableaux, listes chaînées, piles, files, arbres, graphes)
-- Algorithmique (complexité, tri, recherche, diviser pour régner)
-- Bases de données relationnelles (algèbre relationnelle, SQL)
-- Architectures matérielles, systèmes d'exploitation, réseaux
-- Langages et programmation (paradigmes, récursivité, POO)
+## 📚 Contenu couvert (programme officiel)
 
-## Prérequis
+| Thème | Notions clés |
+|---|---|
+| 🧩 **Types & données** | Types construits, représentation binaire |
+| 🌲 **Structures de données** | Tableaux, listes chaînées, piles, files, arbres, graphes |
+| ⚙️ **Algorithmique** | Complexité, tri, recherche, diviser pour régner |
+| 🗃️ **Bases de données** | Algèbre relationnelle, SQL |
+| 🖥️ **Architecture & OS** | Architectures matérielles, systèmes d'exploitation, réseaux |
+| 💻 **Langages & POO** | Paradigmes, récursivité, programmation orientée objet |
 
-- Python ≥ 3.10
-- SQLite3 (pour les TP bases de données)
-- Un IDE ou éditeur (VS Code, Thonny, etc.)
+---
 
-## Installation
+## 🛠️ Prérequis
+
+- 🐍 Python ≥ 3.10
+- 🗄️ SQLite3 (TP bases de données)
+- 🧰 Un IDE ou éditeur (VS Code, Thonny, etc.)
+
+---
+
+## 🚀 Installation
 
 ```bash
 git clone https://github.com/<utilisateur>/NSI_ter_2026.git
 cd NSI_ter_2026
 ```
 
-## Usage
+## ▶️ Usage
 
 Chaque dossier contient ses propres scripts/exercices, exécutables indépendamment :
 
@@ -48,10 +67,12 @@ Chaque dossier contient ses propres scripts/exercices, exécutables indépendamm
 python3 algo/tri_fusion.py
 ```
 
-## Licence
+---
 
-Usage pédagogique. À préciser (MIT, CC BY-NC, ou aucune licence si strictement personnel).
+## 📄 Licence
 
-## Auteur
+Usage pédagogique. *(À préciser : MIT, CC BY-NC, ou aucune licence si strictement personnel.)*
 
-*Martin JAVOUREZ TG1 Lycée Albert Claveille*
+## ✍️ Auteur
+
+**Martin JAVOUREZ** — TG1, Lycée Albert Claveille
