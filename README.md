@@ -54,4 +54,4 @@ Usage pédagogique. À préciser (MIT, CC BY-NC, ou aucune licence si strictemen
 
 ## Auteur
 
-*(à compléter)*
+*Martin JAVOUREZ TG1 Lycée Albert Claveille*
