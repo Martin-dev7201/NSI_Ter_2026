@@ -58,6 +58,7 @@ class Filtre:
                     self._pix[x, y] = (0, 0, 0)
                 else:
                     self._pix[x, y] = (255, 255, 255)
+    
     def symetrie_verticale(self):
         """Effectue une symétrie verticale (effet miroir gauche/droite)."""
         w = self.width()
