@@ -59,20 +59,6 @@ git clone https://github.com/<utilisateur>/NSI_ter_2026.git
 cd NSI_ter_2026
 ```
 
-## ▶️ Usage
-
-Chaque dossier contient ses propres scripts/exercices, exécutables indépendamment :
-
-```bash
-python3 algo/tri_fusion.py
-```
-
----
-
-## 📄 Licence
-
-Usage pédagogique. *(À préciser : MIT, CC BY-NC, ou aucune licence si strictement personnel.)*
-
 ## ✍️ Auteur
 
 **Martin JAVOUREZ** — TG1, Lycée Albert Claveille
