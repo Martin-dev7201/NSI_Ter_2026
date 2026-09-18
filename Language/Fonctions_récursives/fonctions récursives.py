@@ -16,6 +16,9 @@ def somme_chiffres(chaine):
     return int(chaine[0]) + somme_chiffres(chaine[1:])
 
 def inverse_caractères(chaine):
-    if chaine == "":
-        return 0
-    return (chaine[::-1]) 
+    chaine_inverse = ""
+    if len(chaine) == 1:
+        return chaine
+    else:
+        chaine_inverse +=chaine[::-1]
+    return chaine_inverse 
