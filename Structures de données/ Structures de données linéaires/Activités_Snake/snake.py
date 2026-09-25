@@ -64,3 +64,34 @@ class Snake:
 
     def couper_queue(self):
         self._retirer_dernier(self._position)
+
+
+# --- Bloc de tests ---
+s = Snake()
+
+print("\n--- Etats Initiaux ---")
+print("Orientation initiale :", s.lire_orientation())
+print("Tête initiale :", s.lire_tete())
+print("Taille initiale :", s.taille())
+print("Positions :", s.lire_positions())
+
+print("\n--- Déplacement vers le bas ---")
+s.ajout_tete()
+print("Tête après ajout :", s.lire_tete())
+print("Taille après ajout :", s.taille())
+print("Positions :", s.lire_positions())
+
+print("\n--- Virage à droite et déplacement ---")
+s.modifier_orientation("droite")
+s.ajout_tete()
+s.couper_queue()
+print("Tête actuelle :", s.lire_tete())
+print("Taille après coupe :", s.taille())
+print("Positions :", s.lire_positions())
+
+print("\n--- Test de collision ---")
+print("Est mort ? :", s.est_mort())
+s.modifier_orientation("gauche")
+s.ajout_tete()
+print("Positions après demi-tour :", s.lire_positions())
+print("Est mort après collision ? :", s.est_mort())
