@@ -1,11 +1,13 @@
 from maillon import Maillon
 
-
 class Snake:
 
     def __init__(self):
         self._position = Maillon((50, 30), None)
         self._orientation = "bas"
+
+    def __repr__(self):
+        return f"Le snake est de position : {s.lire_positions()}"
 
     def modifier_orientation(self, o: str):
         self._orientation = o
