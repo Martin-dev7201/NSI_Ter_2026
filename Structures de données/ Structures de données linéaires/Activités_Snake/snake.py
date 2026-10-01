@@ -67,6 +67,15 @@ class Snake:
     def couper_queue(self):
         self._retirer_dernier(self._position)
 
+    def traverser_murs(self, largeur_grille=72, hauteur_grille=48):
+        """Fait réapparaître la tête de l'autre côté s'il dépasse les bords."""
+        x, y = self.lire_tete()
+        x_mural = x % largeur_grille
+        y_mural = y % hauteur_grille
+
+        # Si les coordonnées ont changé (sortie d'écran), on corrige la valeur du maillon de tête
+        if x != x_mural or y != y_mural:
+            self._position.valeur = (x_mural, y_mural)
 
 # --- Bloc de tests ---
 s = Snake()
