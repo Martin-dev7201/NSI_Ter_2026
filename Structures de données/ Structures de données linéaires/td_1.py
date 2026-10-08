@@ -39,8 +39,7 @@ class File:
     def file_depiler(self):
         if self.__pile_sortie.est_vide():
             while not self.__pile_entree.est_vide():
-                element = self.__pile_entree.depiler()
-                self.__pile_sortie.empiler(element)
+                self.__pile_sortie.empiler(self.__pile_entree.depiler())
 
         return self.__pile_sortie.depiler()
     
