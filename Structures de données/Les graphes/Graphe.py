@@ -45,10 +45,14 @@ class GrapheM :
                 v.append(i)
         return v
     
-    def matrix_to_list(self):
+    def matrix_to_list(self,p):
         d = {}
-        for i in range (self.__n):
-            d[i] = self.voisins(i)
+        for nom, i in p.items():
+            d[nom] = []
+            for voisin in self.voisins(i):
+                for nom_voisin, numero in p.items():
+                    if numero == voisin:
+                        d[nom].append(nom_voisin)
         return d
             
 
