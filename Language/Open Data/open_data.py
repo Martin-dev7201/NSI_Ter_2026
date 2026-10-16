@@ -32,10 +32,12 @@ url = "https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/
 reponse = requests.get(url, verify = True)
 dico = reponse.json()
 results = dico.get("results")
+
 for record in results:
     adresse = record.get("adr_num")
     commune = record.get("adr_voie")
     print(adresse, commune)
+
 print(f"Il y a {len(results)} defibrillateurs")
 
 
