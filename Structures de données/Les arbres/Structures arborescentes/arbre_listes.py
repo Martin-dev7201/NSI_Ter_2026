@@ -1,4 +1,3 @@
-
 def creation_arbre(r,profondeur):
     ''' r : racine de l'arbre (str ou int)
     profondeur : profondeur de l’arbre (int)'''
@@ -21,6 +20,8 @@ def parent(arbre,p):
             return arbre[(indice-2)//2]
         else:
             return arbre[(indice-1)//2]
+
+# Q4
 
 def est_vide(arbre):
     '''Retourne True si l'arbre est vide.'''
