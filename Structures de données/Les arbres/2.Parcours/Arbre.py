@@ -1,3 +1,5 @@
+from file import * 
+
 class Arbre :
     def __init__(self,d, gauche=None, droit=None) :
         '''Construit un arbre constituite d'un noeud d'étiquette d, d'un
@@ -41,6 +43,18 @@ class Arbre :
             self.__sad.parcours_postfixe()
         
         print(self.__data, end=' ')
+        
+    def parcours_largeur(self):
+        file = File()
+        file.enfiler(self)
+        while not file.est_vide():
+            noeud = file.defiler()
+            print(noeud.__data, end=' ')
+            if noeud.__sag is not None:
+                noeud.__sag.parcours_largeur()
+            if noeud.__sad is not None:
+                noeud.__sad.parcours_largeur()
+        
 
 def creer_noeud(abr_lst,indice=0) :
     '''Convertir d'un arbre defini par une liste en un arbre de type AbreBin
@@ -60,6 +74,6 @@ def creer_noeud(abr_lst,indice=0) :
 
 abr = creer_noeud(['H', 'Y', 'N', 'P', 'T', 'O', '.', None, None, None, None, None, None, None, None])
 
-print(abr.parcours_infixe())
-print(abr.parcours_prefixe())
-print(abr.parcours_postfixe())
+abr.parcours_infixe()
+abr.parcours_prefixe()
+abr.parcours_postfixe()
