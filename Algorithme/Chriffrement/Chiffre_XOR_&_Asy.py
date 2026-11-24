@@ -50,6 +50,7 @@ def chiffre_message(m,clef):
     return c
 
 assert chiffre_message(ord('a'),(103,537)) == 325 , "Erreur pour le chiffrement du message"
+#assert chiffre_message("N", (28648, 1004889)) + chiffre_message("S", (28648, 1004889)) + chiffre_message("I", (28648, 1004889)) == [224766, 368006, 81526], "Erreur pour le chiffrement du message"
 
 def dechiffre_message(m,clef):
     '''
