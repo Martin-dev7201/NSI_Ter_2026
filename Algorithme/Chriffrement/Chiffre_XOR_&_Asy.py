@@ -54,13 +54,65 @@ assert chiffre_message(ord('N'), (28648, 1004889)) == 224766, "Erreur pour le ch
 assert chiffre_message(ord('S'), (28648, 1004889)) == 368006, "Erreur pour le chiffrement de la lettre 's' "
 assert chiffre_message(ord('I'), (28648, 1004889)) == 81526, "Erreur pour le chiffrement de la lettre 'I' "
 
-def dechiffre_message(m,clef):
-    '''
-    Déchiffre un message m qui est une liste de nombres
-    et renvoie le message déchiffré sous la forme d'une chaîne de caractères 
-    '''
-    d = clef[0] * m % clef[1]
-    return chr(d)
+def dechiffre_message(m, clef):
+    """Déchiffre une liste d'entiers (ou un entier) avec la clé privée et renvoie une chaîne de caractères."""
+    d, n = clef
+    if isinstance(m, int):
+        m = [m]
+    resultat = ""
+    for nombre in m:
+        resultat += chr((d * nombre) % n)
+    return resultat
 
+assert dechiffre_message([325], (73, 537)) == 'a', "Erreur pour le déchiffrement du message"
 assert dechiffre_message(325,(73, 537)) == 'a' , "Erreur pour le déchiffrement du message"
 assert dechiffre_message(224766,(14557, 1004889)) + dechiffre_message(368006,(14557, 1004889)) + dechiffre_message(81526,(14557, 1004889)) == 'NSI', " Erreur de déchiffrement des 3 lettres"
+
+def bruteForceKidRSA(e, n):
+    """Renvoie le premier inverse de e modulo n, ou None s’il n’existe pas."""
+    for d in range(1, n):
+        if (e * d - 1) % n == 0:
+            return d
+    return None
+
+e, n = 53447, 5185112
+message1 = [3580949, 2084433, 3687843, 4436101, 4489548,
+            1710304, 4329207, 4542995, 3901631, 1710304,
+            4061972, 3687843, 1710304, 3527502, 4222313,
+            4436101, 4436101, 1710304, 3687843, 4168866,
+            1710304, 4168866, 4436101, 3901631, 1710304, 3367161]
+d = bruteForceKidRSA(e, n)
+assert d == 323639, "bruteForceKidRSA : clé privée incorrecte"
+assert dechiffre_message(message1, (d, n)) == "C'EST QUI LE BOSS EN NSI ?", "dechiffre_message : premier message secret incorrect"
+
+
+def pgcd(a, b):
+    """Renvoie (g, x, y) tels que g = PGCD(a, b) et a*x + b*y = g."""
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, y, x = pgcd(b % a, a)
+        return (g, x - (b // a) * y, y)
+
+
+def modinv(e, n):
+    """Renvoie l’inverse de e modulo n, ou False si aucun inverse n’existe."""
+    g, x, y = pgcd(e, n)
+    if g != 1:
+        return False
+    else:
+        return x % n
+
+e, n = 230884490440319, 194326240259798261076
+message2 = [16623683311702968, 19625181687427115, 16392798821262649,
+            16392798821262649, 20548719649188391, 7388303694090208,
+            17547221273464244, 15931029840382011, 19163412706546477,
+            7388303694090208, 15238376369061054, 18239874744785201,
+            18008990254344882, 19163412706546477, 7388303694090208,
+            19394297196986796, 19625181687427115, 20548719649188391,
+            15007491878620735, 19625181687427115, 20317835158748072,
+            7388303694090208, 7619188184530527]
+d = modinv(e, n)
+assert d == 158674832848565541575, "modinv : clé privée incorrecte"
+assert dechiffre_message(message2, (d, n)) == "HUGGY LES BONS TUYAUX !", "dechiffre_message : deuxième message secret incorrect"
+
